@@ -1,9 +1,6 @@
 package com.learner.leetcodelearner.lib.swords;
 
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 
 public class Swords_50 {
 //在字符串 s 中找出第一个只出现一次的字符。如果没有，返回一个单空格。 s 只包含小写字母。
@@ -31,10 +28,6 @@ public class Swords_50 {
 
 
 
-    public static void main (String args[]) {
-        Deque<Integer> linkedList = new LinkedList<Integer>();
-        linkedList.offer(1);
-    }
     // 队列 + Map
     public char firstUniqChar(String s) {
         Map<Character, Integer> map = new HashMap<Character, Integer>((int)((float)s.length()/0.75F + 1F));
