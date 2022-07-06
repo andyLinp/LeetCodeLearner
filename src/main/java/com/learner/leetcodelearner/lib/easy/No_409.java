@@ -38,6 +38,7 @@ public class No_409 {
 // 1 <= s.length <= 2000
 // s 只能由小写和/或大写英文字母组成
 //
+// test git protect
 // Related Topics 贪心 哈希表 字符串 👍 425 👎 0
     public int longestPalindrome(String s) {
         int[] count = new int[128];
