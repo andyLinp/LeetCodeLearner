@@ -6,6 +6,10 @@ package com.learner.leetcodelearner.lib.bean;
  * @Date: 2022/06/06 10:07
  **/
 public class Node {
+    // init
+    static {
+        System.out.println("Node init");
+    }
     public int val;
     public Node left, right, next;
 
