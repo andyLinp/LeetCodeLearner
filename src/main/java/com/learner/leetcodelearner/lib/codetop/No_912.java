@@ -5,6 +5,8 @@ import java.util.Random;
 
 /**
  * @Description
+ * @Author andy lin
+ * @Description
  * @Date: 2023/02/27 19:52
  **/
 public class No_912 {
@@ -22,8 +24,10 @@ public class No_912 {
     /**
      * 插入排序
      * 思路:
-     * 从数组第二个元素开始,逆序与它之前的所有元素比较大小,当元素比他大时,就把元素后移,直到找到比他小的元素时,把它插入该元素后面
      *
+     * 从数组第二个元素开始->逆序与它之前的所有元素比较大小
+     *                   当元素比他大时->就把元素后移
+     *                   直到找到比他小的元素时->把它插入该元素后面
      * @param nums
      * @return
      */
