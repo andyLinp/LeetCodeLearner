@@ -3,8 +3,7 @@ package com.learner.leetcodelearner.lib.codetop;
 import java.util.Arrays;
 
 /**
- * @Description  回家看 加个勾八班
- * @Author andy lin
+ * @Description
  * @Date: 2023/02/27 19:52
  **/
 public class No_912 {
@@ -34,6 +33,36 @@ public class No_912 {
                j--;
            }
            nums[j] = temp;
+        }
+        return nums;
+    }
+
+    /**
+     * 技术排序
+     * 通过构建一个长度略大于原数组的暂存数组
+     * 将原数组通过减去原数组最小值来映射到暂存数组(在暂存数组下标对应位置计数)
+     * 倒序遍历暂存数组,通过计数标识取出原数组从大到小的排序数组
+     * @param nums
+     * @return
+     */
+    public int[] countNum(int[] nums) {
+        int max = nums[0], min = nums[0];
+        for (int i = 0; i < nums.length; i++) {
+            if (max < nums[i]) max = nums[i];
+            if (min > nums[i]) min = nums[i];
+        }
+        int[] temp = new int[max - min + 1];
+        for (int i = 0; i < nums.length; i++) {
+            temp[nums[i]-min]++;
+        }
+        int j = nums.length - 1;
+        for (int i = max - min; i > -1; i--) {
+            int n = temp[i];
+            while(n > 0) {
+                nums[j] = i + min;
+                n--;
+                j--;
+            }
         }
         return nums;
     }
