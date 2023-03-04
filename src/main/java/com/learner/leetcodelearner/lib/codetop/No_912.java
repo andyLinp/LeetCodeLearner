@@ -207,4 +207,52 @@ public class No_912 {
             }
         }
     }
+
+    int[] tmp;
+    public int[] sortArrrayByMergeSort(int[] nums) {
+        tmp = new int[nums.length];
+        mergeSort(nums, 0, nums.length - 1);
+        return nums;
+    }
+
+    /**
+     * 归并排序
+     * 思路
+     * 归并排序利用了分治的思想来对序列进行排序
+     * 对一个长为n的待排序的序列
+     * 我们将其分解成两个长度为n/2的子序列
+     * 每次先递归调用函数使两个子序列有序
+     * 然后我们再线性合并两个有序的子序列使整个序列有序.
+     * @param nums
+     * @param l
+     * @param r
+     */
+    public void mergeSort(int[] nums, int l, int r) {
+        if (l >= r) {
+            return;
+        }
+        int mid = (l + r) >> 1;
+        mergeSort(nums, l, mid);
+        mergeSort(nums, mid + 1, r);
+        int i = l, j = mid + 1;
+        int cnt = 0;
+        while(i <= mid && j <= r) {
+            if (nums[i] <= nums[j]) {
+                tmp[cnt++] = nums[i++];
+            } else {
+                tmp[cnt++] = nums[j++];
+            }
+        }
+
+        while(i <= mid) {
+            tmp[cnt++] = nums[i++];
+        }
+
+        while(j <= r) {
+            tmp[cnt++] = nums[j++];
+        }
+        for (int k = 0; k < r - l + 1; ++k) {
+            nums[k+1] = tmp[k];
+        }
+    }
 }
