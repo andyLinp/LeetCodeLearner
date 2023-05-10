@@ -29,12 +29,18 @@ public class No_42 {
         return sum;
     }
 
+    /**
+     * 每一列 都有一个最大左 和最大右 该列值为 Math.min(maxLeft, maxRight) 与 当前列的差值
+     * 最大左与最大右均不与当前列进行对比
+     * @param height
+     * @return
+     */
     public int dpTrap(int[] height) {
         int sum = 0;
         int maxLeft = 0;
         int[] maxRight = new int[height.length];
         for (int i = height.length - 2; i >= 0; i--) {
-            maxRight[i] = Math.max(maxRight[i], height[i+1]);
+            maxRight[i] = Math.max(maxRight[i+1], height[i+1]);
         }
         for (int i = 1; i < height.length-1; i++) {
             maxLeft = Math.max(maxLeft, height[i -1]);
@@ -45,4 +51,6 @@ public class No_42 {
         }
         return sum;
     }
+
+
 }
