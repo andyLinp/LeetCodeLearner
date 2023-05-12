@@ -5,7 +5,8 @@ package com.learner.leetcodelearner.lib.utils;
  * @Author andy lin
  * @Date: 2023/04/07 14:28
  **/
-import java.util.Comparator;
+import java.text.Collator;
+import java.util.*;
 
 public class WindowsFileNameComparator implements Comparator<String> {
     public int compare(String s1, String s2) {
@@ -48,12 +49,42 @@ public class WindowsFileNameComparator implements Comparator<String> {
                     return Character.compare(c1, c2);
                 }
             } else {
-                return Character.compare(Character.toLowerCase(c1), Character.toLowerCase(c2));
+//                return Character.compare(Character.toLowerCase(c1), Character.toLowerCase(c2));
+                // 字符中文拼音排序
+                return Collator.getInstance(Locale.CHINESE).compare(String.valueOf(c1), String.valueOf(c2));
             }
         }
 
         // 如果字符串的前缀相同，则长度较短的字符串排在前面
         return Integer.compare(s1.length(), s2.length());
+    }
+
+    public static void main(String[] args) {
+
+        String name1 = "橙.png";
+        String name2 = "红.png";
+        String name3 = "黄.png";
+        String name4 = "蓝.png";
+        String name5 = "绿.png";
+        String name6 = "青蓝.png";
+        String name7 = "未命名文件夹";
+        String name8 = "未命名文件夹1";
+        String name9 = "未命名文件夹2";
+        String name10 = "常用logo整理";
+        String name11 = "rizhi";
+        String name12 = "?.png";
+        String name13 = "!.png";
+        String name14 = "@.png";
+        String name15 = "#.png";
+        String name16 = "$.png";
+        String name17 = "%.png";
+        String name18 = "^.png";
+        String name19 = "-.png";
+        String name20 = "..png";
+        List<String> test = new ArrayList<>();
+        List<String> strings = Arrays.asList(name1, name2, name3, name4, name5, name6, name7, name8, name9, name10, name11, name12, name13, name14, name15, name16, name17, name18, name19, name20);
+        Collections.sort(strings, new WindowsFileNameComparator());
+        strings.stream().forEach(System.out::println);
     }
 }
 
