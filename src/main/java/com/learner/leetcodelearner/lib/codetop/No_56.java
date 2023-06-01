@@ -39,12 +39,13 @@ public class No_56 {
      * @param intervals
      * @return
      */
-    public int[][] mergeWithoutSort(int[][] intervals) {
+    public int[][] mergeWithBitSet(int[][] intervals) {
         BitSet bitSet = new BitSet();
         int max = 0;
         for (int[] interval : intervals) {
             // *2 : 若[3, 4] [5, 6] 进行应该4和5不会相连,但是BitSet中会存在{3, 4, 5, 6}
             // 为避免这种情况 *2 就相当于给每一个相邻值之间插入了一个多余的值
+            // 相连元素之间插入一个数 防止相连元素被吞并
             int temp = interval[1] * 2 + 1;
             // 将指定的 fromIndex(包含) 到 指定的 toIndex(不含) 范围内的位设置为true
             bitSet.set(interval[0] * 2, temp, true);
@@ -57,7 +58,7 @@ public class No_56 {
             int start = bitSet.nextSetBit(index);
             // 返回start及之后第一个为false的下标
             int end = bitSet.nextClearBit(start);
-
+            // 取出来时需要恢复原有的元素
             int[] item = {start / 2, (end -1)/2};
             intervals[count++] = item;
 
