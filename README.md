@@ -26,7 +26,8 @@ Life is hard, learn from Afur.
 
 
 ![img_1.png](img_1.png)
-
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
 # 二分查找
 在升序数组 nums 中寻找目标值 target，对于特定下标i，比较nums[i] 和 target 的大小：
 * 如果 nums[i] == target, 则下标 i 即为要寻找的下标;
