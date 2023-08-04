@@ -28,6 +28,13 @@ Life is hard, learn from Afur.
 ![img_1.png](img_1.png)
 ![img_2.png](img_2.png)
 ![img_3.png](img_3.png)
+
+# 数组与链表
+![img_4.png](img_4.png)
+
+在计算机中，数据读写速度排序是“硬盘 < 内存 < CPU 缓存”。当我们访问数组元素时，计算机不仅会加载它，还会缓存其周围的其他数据，从而借助高速缓存来提升后续操作的执行速度。链表则不然，计算机只能挨个地缓存各个节点，这样的多次“搬运”降低了整体效率。
+
+
 # 二分查找
 在升序数组 nums 中寻找目标值 target，对于特定下标i，比较nums[i] 和 target 的大小：
 * 如果 nums[i] == target, 则下标 i 即为要寻找的下标;
