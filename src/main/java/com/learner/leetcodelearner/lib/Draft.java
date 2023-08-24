@@ -2,9 +2,7 @@ package com.learner.leetcodelearner.lib;
 
 
 
-import org.springframework.boot.jackson.JsonObjectDeserializer;
 
-import java.text.Collator;
 import java.util.*;
 
 
@@ -20,28 +18,11 @@ public class Draft {
     Map<Character, Integer> current = new HashMap<>();
     Map<Character, Integer> standard = new HashMap<>();
     public static void main(String[] args) {
-        // 创建一个自定义的比较器
-        Comparator<String> multilingualComparator = new Comparator<String>() {
-            private Collator collator = Collator.getInstance(Locale.CHINA);
 
-            @Override
-            public int compare(String str1, String str2) {
-                // 使用 Collator 进行比较
-                return collator.compare(str1, str2);
-            }
-        };
-
-        // 创建一个字符串数组，包含需要排序的字符串
-        String[] strings = {"你好", "Hello", "123", "世界", "456", "板材类", "单调"};
-
-        // 使用自定义比较器进行排序
-        Arrays.sort(strings, multilingualComparator);
-
-        // 打印排序结果
-        for (String str : strings) {
-            System.out.println(str);
-        }
     }
+
+
+
 
     public String minWindow(String s, String t) {
         int sLen = s.length(), tLen = t.length();
