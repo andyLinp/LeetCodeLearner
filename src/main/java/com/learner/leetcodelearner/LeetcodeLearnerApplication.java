@@ -7,7 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LeetcodeLearnerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(LeetcodeLearnerApplication.class, args);
+        try {
+            SpringApplication.run(LeetcodeLearnerApplication.class, args);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
