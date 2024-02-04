@@ -3,8 +3,7 @@ package com.learner.leetcodelearner.hello_algo.chapter_tree;
 import com.learner.leetcodelearner.lib.bean.TreeNode;
 import com.learner.leetcodelearner.lib.utils.PrintUtil;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * @Description
@@ -44,25 +43,10 @@ public class binary_tree_dfs {
     }
 
     public static void main(String[] args) {
-        /* 初始化二叉树 */
-        // 这里借助了一个从数组直接生成二叉树的函数
-        TreeNode root = TreeNode.listToTree(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
-        System.out.println("\n初始化二叉树\n");
-        PrintUtil.printTree(root);
-
-        /* 前序遍历 */
-        list.clear();
-        preOrder(root);
-        System.out.println("\n前序遍历的节点打印序列 = " + list);
-
-        /* 中序遍历 */
-        list.clear();
-        inOrder(root);
-        System.out.println("\n中序遍历的节点打印序列 = " + list);
-
-        /* 后序遍历 */
-        list.clear();
-        postOrder(root);
-        System.out.println("\n后序遍历的节点打印序列 = " + list);
+        Map<String, List<String>> map = new HashMap<>();
+        List<String> list = new ArrayList<>();
+        map.put("test", list);
+        map.get("test").add("ok");
+        System.out.println(map.get("test").get(0));
     }
 }
